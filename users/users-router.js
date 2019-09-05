@@ -44,10 +44,6 @@ router.post('/api/register', (req, res) => {
       });
   });
   
-  // we would like this to be protected (shouldn't be viewable by those not logged in)
-  // 'proof'  req.headers should have a correct username/password
-  // req.headers.username, req.headers.password
-  // if they are incorrect, we should be blocked
   router.get('/api/users', restricted, (req, res) => {
     Users.find()
       .then(users => {
