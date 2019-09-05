@@ -6,9 +6,10 @@ const restricted = require('../auth/restricted-middleware.js');
 
 const router = express();
 
-// router.get('/', (req, res) => {
-//     res.send("It's alive!!");
-//   });
+router.get('/', (req, res) => {
+  
+    res.send("It's alive!!");
+  });
 
 
   // this is authentication
@@ -22,7 +23,7 @@ router.post('/api/register', (req, res) => {
         res.status(201).json(saved);
       })
       .catch(error => {
-        res.status(500).json(error);
+        res.status(500).json({ message: 'Registration Error', error });
       });
   });
   
@@ -36,11 +37,11 @@ router.post('/api/register', (req, res) => {
         if (user && bcrypt.compareSync(password, user.password)) {
           res.status(200).json({ message: `Welcome ${user.username}!` });
         } else {
-          res.status(401).json({ message: 'Invalid Credentials' });
+          res.status(401).json({ message: 'Invalid Credentials', error });
         }
       })
       .catch(error => {
-        res.status(500).json(error);
+        res.status(500).json({ message: 'Login Error' });
       });
   });
   
@@ -49,7 +50,7 @@ router.post('/api/register', (req, res) => {
       .then(users => {
         res.json(users);
       })
-      .catch(error => res.send(error));
+      .catch(error => res.send({ message: 'Restricted', error }));
   });
 
   module.exports = router;
