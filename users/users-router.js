@@ -6,9 +6,9 @@ const restricted = require('../auth/restricted-middleware.js');
 
 const router = express();
 
-router.get('/', (req, res) => {
-    res.send("It's alive!");
-  });
+// router.get('/', (req, res) => {
+//     res.send("It's alive!!");
+//   });
 
 
   // this is authentication
@@ -49,7 +49,7 @@ router.post('/api/register', (req, res) => {
       .then(users => {
         res.json(users);
       })
-      .catch(err => res.send(err));
+      .catch(error => res.send(error));
   });
 
   module.exports = router;
