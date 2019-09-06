@@ -13,11 +13,9 @@ server.use(helmet());
 server.use(cors());
 server.use(express.json());
 
-
-
 server.get('/', (req, res) => {
   res.send("Server Up!");
-});
+});// tested in Insomia
 
 // this is authentication
 server.post('/api/register', (req, res) => {
@@ -34,7 +32,7 @@ server.post('/api/register', (req, res) => {
     .catch(error => {
       res.status(500).json({ message: 'Registration Error', error });
     });
-});
+});// tested in Insomia
 
 server.post('/api/login', (req, res) => {
   let { username, password } = req.body;
@@ -53,7 +51,7 @@ server.post('/api/login', (req, res) => {
     .catch(error => {
       res.status(500).json({ message: 'Login Error' });
     });
-});
+});// tested in Insomia
 
 server.get('/api/users', restricted, (req, res) => {
   Users.find()
@@ -61,7 +59,8 @@ server.get('/api/users', restricted, (req, res) => {
       res.json(users);
     })
     .catch(error => res.send({ message: 'Restricted', error }));
-});
+});// tested in Insomia
+
 
 require("dotenv").config();
 
