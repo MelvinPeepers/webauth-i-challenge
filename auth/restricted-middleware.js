@@ -16,12 +16,15 @@ module.exports = (req, res, next) => {
 
 // original
 // module.exports = (req, res, next) => {
+  // this shouldn't happen
+  // grabbing a cookie 
 //   const { username, password } = req.headers;
 
 //   if (username && password) {
 //     Users.findBy({ username })
 //       .first()
 //       .then(user => {
+            // then making sure that cookie is valid
 //         if (user && bcrypt.compareSync(password, user.password)) {
 //           next();
 //         } else {
