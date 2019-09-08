@@ -6,6 +6,7 @@ module.exports = (req, res, next) => {
   // as long as someone has a username and password
   // that we have already validated
   // they should have access
+  console.log('req session', req.session);
     if (req.session && req.session.user) {
         next();
       } else {
@@ -16,6 +17,12 @@ module.exports = (req, res, next) => {
 
 // original
 // module.exports = (req, res, next) => {
+  // as long as someone has a valid user and password
+  // that we have already validated
+  // they should have access
+
+  // username/password should not be in the headers (ever)
+  // grab a cookie instead
   // this shouldn't happen
   // grabbing a cookie 
 //   const { username, password } = req.headers;

@@ -36,6 +36,7 @@ router.post('/register', (req, res) => {
       res.status(500).json(error);
     });
 });
+// POST localhost:5000/api/auth/register tested in Insomia 
 
 // original
 // router.post('/login', (req, res) => {
@@ -79,7 +80,7 @@ router.post('/login', (req, res) => {
       res.status(500).json(error);
     });
 });
-// localhost:5000/api/auth/login tested in Insomia
+// POST localhost:5000/api/auth/login tested in Insomia
 
 router.get('/logout', (req, res) => {
   if (req.session) {
@@ -94,5 +95,5 @@ router.get('/logout', (req, res) => {
     })
   }
 });
-
+// GET localhost:5000/api/auth/logout tested in Insomnia
 module.exports = router;
