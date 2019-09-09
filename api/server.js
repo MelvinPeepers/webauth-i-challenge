@@ -2,13 +2,15 @@ const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
 const session = require('express-session');
-const KnexSessionStore = require('connect-session-knex');
+const connectSessionKnex = require('connect-session-knex');
 
 const authRouter = require('../auth/auth-router.js');
 const usersRouter = require('../users/users-router.js');
 const db = require('../database/dbConfig.js')
 
 const server = express();
+
+const KnexSessionStore = connectSessionKnex(session);
 
 const sessionConfig = {
   name: 'Afganistan Banana Stand',
